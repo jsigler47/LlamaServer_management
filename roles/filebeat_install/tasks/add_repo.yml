@@ -1,0 +1,16 @@
+---
+- name: Add Beats repo
+  rpm_key:
+    key: https://packages.elastic.co/GPG-KEY-elasticsearch
+    state: present
+
+- name: Add elastic repo to yum.repos.d
+  file:
+    path: /etc/yum.repos.d/elastic.repo
+    state: touch
+
+- name: Copy elastic.repo template
+  copy:
+    src: elastic.repo
+    dest: /etc/yum.repos.d/elastic.repo
+    backup: yes

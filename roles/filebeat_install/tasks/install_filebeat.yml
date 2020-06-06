@@ -1,0 +1,10 @@
+---
+- name: Install filebeat
+  yum:
+    name: filebeat
+    state: present
+
+- name: Enable filebeat
+  systemd:
+    name: filebeat
+    enabled: yes
