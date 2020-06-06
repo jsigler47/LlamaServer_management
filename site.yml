@@ -1,0 +1,56 @@
+---
+- name: Setup Server
+  hosts: 192.168.1.10
+  become: true
+
+  tasks:
+   - name: Add epel-release repo
+     yum:
+       name: epel-release
+       state: present
+
+   # TODO: Make Filebeat role and template elastic.repo file
+   - name: Add Beats repo
+     rpm_key:
+       key: https://packages.elastic.co/GPG-KEY-elasticsearch
+       state: present
+
+   - name: Add elastic repo to yum.repos.d
+     file:
+       path: /etc/yum.repos.d/elastic.repo
+       state: touch
+
+   - name: Fill in elastic.repo
+     blockinfile:
+       path: /etc/yum.repos.d/elastic.repo
+       block: |
+         [elastic-7.x]
+         name=Elastic repository for 7.x packages
+         baseurl=https://artifacts.elastic.co/packages/7.x/yum
+         gpgcheck=1
+         gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+         enabled=1
+         autorefresh=1
+         type=rpm-md
+  
+   - name: Install filebeat
+     yum:
+      name: filebeat
+      state: present
+
+   - name: Enable filebeat
+     systemd:
+       name: filebeat
+       enabled: yes
+       
+   - name: Yum upgrade all
+     yum:
+       name: '*'
+       state: latest
+
+   - name: Install packages
+     yum:
+       name: "{{ item }}"
+       state: present
+     with_items:
+      - vim
