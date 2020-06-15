@@ -1,0 +1,39 @@
+- name: Install vsftpd
+  yum:
+    name: vsftpd
+    state: present
+
+- name: Start vsftpd
+  systemd:
+    name: vsftpd
+    enabled: yes
+
+- name: Open firewall port 21
+  port: 21/tcp
+  permanent: yes
+  state: enabled
+  zone: public
+  immediate: yes
+
+- name: Enable firewall ftp service
+  service: ftp
+  permanent: yes
+  state: enabled
+  zone: public
+  immediate: yes
+
+- name: Copy vsftpd default config
+  copy:
+    src: /etc/vsftpd/vsftpd.conf
+    dest: /etc/vsftpd/vsftpd.conf.default
+
+- name: Copy vsftpd config file
+  copy:
+    src: vsftpd.conf
+    dest: /etc/vsftpd/vsftpd.conf
+    backup: yes
+
+- name: Restart vsftpd service
+  systemd:
+    name: vsftpd
+    state: restarted

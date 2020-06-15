@@ -1,0 +1,6 @@
+---
+- name: Install packages
+  import_tasks: install_packages.yml
+
+- name: Setup FTP Server
+  import_tasks: setup_ftp.yml

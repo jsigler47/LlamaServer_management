@@ -2,39 +2,6 @@
 - hosts: 192.168.1.10
   become: true
 
-  tasks:
-   - name: Add epel-release repo
-     yum:
-       name: epel-release
-       state: present
-
-   - name: Install filebeat
-     yum:
-      name: filebeat
-      state: present
-
-   - name: Enable filebeat
-     systemd:
-       name: filebeat
-       enabled: yes
-       
-   - name: Yum upgrade all
-     yum:
-       name: '*'
-       state: latest
-
-   - name: Install packages
-     yum:
-       name: 
-        - vim
-        - wireshark
-        - clamav
-        - htop
-        - gcc
-        - java
-        - nmap
-        - wget
-       state: present
-
   roles:
+    - setup_baseline
     - filebeat_install
