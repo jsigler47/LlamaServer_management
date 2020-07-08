@@ -15,4 +15,6 @@
     - java
     - nmap
     - wget
+    - openssh-server
+    - openssh-clients
     state: present
