@@ -1,11 +1,11 @@
 ---
 - name: Yum upgrade all
-yum:
+  yum:
     name: '*'
     state: latest
 
 - name: Install packages
-yum:
+  yum:
     name: 
     - vim
     - wireshark
