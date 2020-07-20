@@ -4,4 +4,3 @@
 
   roles:
     - setup_baseline
-    - filebeat_install

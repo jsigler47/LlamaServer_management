@@ -4,17 +4,19 @@
     name: '*'
     state: latest
 
+- name: Enable epel-release
+  yum:
+    name: epel-release
+    state: present
+
 - name: Install packages
   yum:
     name: 
     - vim
     - wireshark
-    - clamav
     - htop
     - gcc
     - java
     - nmap
     - wget
-    - openssh-server
-    - openssh-clients
     state: present
