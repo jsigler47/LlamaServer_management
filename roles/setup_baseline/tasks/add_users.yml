@@ -1,20 +1,13 @@
----
 - name: Add ansible user
-    user:
-      name: ansible
-      shell: /bin/bash
-      password: "ansible"
+  user:
+    name: ansible
+    shell: /bin/bash
+    password: "ansible"
 
 - name: Add ansible user to sudoers
-    copy:
-      dest: "/etc/sudoers.d/ansible"
-      content: "devops ALL=(ALL) NOPASSWD: ALL"
-
-- name: Deploy SSH Key
-    authorized_key: 
-      user: ansible 
-      key: "{{ lookup ('file', '/home/ansible/.ssh/id_rsa.pub') }}"
-      state: present
+  copy:
+    dest: "/etc/sudoers.d/ansible"
+    content: "devops ALL=(ALL) NOPASSWD: ALL"
 
 - name: Restart ssh
   systemd:
