@@ -1,0 +1,25 @@
+---
+- name: Grab docker convenience script
+  get_url:
+    url: https://get.docker.com
+    dest: /tmp/get-docker.sh
+
+- name: Run docker convenience script
+  command: /opt/get-docker.sh
+  register: results
+
+- name: Enable docker on boot
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Create docker group
+  group:
+    name: docker
+
+- name: Add user to docker group
+  user:
+    name: dylan
+    groups: docker
+    append: yes

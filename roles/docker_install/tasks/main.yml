@@ -1,0 +1,6 @@
+---
+- name: Clean old docker
+import_tasks: pre-clean.yml
+
+- name: Install docker
+import_tasks: install.yml
