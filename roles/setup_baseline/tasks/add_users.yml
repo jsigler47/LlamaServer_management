@@ -1,0 +1,27 @@
+---
+- name: Add ansible user
+  user:
+    name: ansible
+    shell: /bin/bash
+    password: "ansible"
+
+- name: Add ansible user to sudoers
+  copy:
+    dest: "/etc/sudoers.d/ansible"
+    content: "ansible ALL=(ALL) NOPASSWD: ALL"
+
+- name: Add user dylan
+  user:
+    name: dylan
+    shell: /bin/bash
+    password: "changeme"
+
+- name: Add user dylan to sudoers
+  copy:
+    dest: "/etc/sudoers.d/ansible"
+    content: "dylan ALL=(ALL) NOPASSWD: ALL"
+
+- name: Restart ssh
+  systemd:
+    name: sshd
+    state: restarted

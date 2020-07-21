@@ -1,0 +1,17 @@
+---
+- name: Enable and start sshd
+  systemd:
+    name: sshd
+    state: started
+    enabled: yes
+
+- name: Copy sshd config
+  copy:
+    src: sshd_config
+    dest: /etc/ssh/sshd_config
+    force: yes
+
+- name: Restart sshd
+  systemd:
+    name: sshd
+    state: restarted
