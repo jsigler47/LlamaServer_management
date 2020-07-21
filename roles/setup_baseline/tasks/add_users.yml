@@ -2,7 +2,6 @@
 - name: Add ansible user
   user:
     name: ansible
-    groups: sudo
     shell: /bin/bash
     password: "ansible"
 
@@ -14,7 +13,6 @@
 - name: Add user dylan
   user:
     name: dylan
-    groups: sudo
     shell: /bin/bash
     password: "changeme"
 

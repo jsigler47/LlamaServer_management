@@ -19,4 +19,5 @@
     - java
     - nmap
     - wget
+    - yum-utils
     state: present

@@ -1,3 +1,8 @@
+- name: Remove vsftpd
+  yum:
+    name: vsftpd
+    state: absent
+
 - name: Install vsftpd
   yum:
     name: vsftpd
@@ -29,6 +34,11 @@
     src: vsftpd.conf
     dest: /etc/vsftpd/vsftpd.conf
     backup: yes
+
+- name: Clean vsftpd config file
+  command: 
+    cmd: "sed -i 's,\r,,;s, *$,,' /etc/vsftpd/vsftpd.conf"
+    warn: no
 
 - name: Restart vsftpd service
   systemd:

@@ -1,12 +1,19 @@
 ---
-- name: Grab docker convenience script
-  get_url:
-    url: https://get.docker.com
-    dest: /tmp/get-docker.sh
+- name: Enable docker-ce repo
+  command:
+    cmd: "yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
 
-- name: Run docker convenience script
-  command: /opt/get-docker.sh
-  register: results
+- name: Install latest containerd.io
+  yum:
+    name: 'https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm'
+    state: present
+
+- name: Install docker engine
+  yum:
+    name:
+    - docker-ce
+    - docker-ce-cli
+    state: present
 
 - name: Enable docker on boot
   systemd:
