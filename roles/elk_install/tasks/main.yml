@@ -1,0 +1,9 @@
+---
+- name: Clone repo
+  import_tasks: clone_repo.yml
+
+- name: Configure elk
+import_tasks: configure_elk.yml 
+
+- name: Start elk stack
+  import_tasks: start_elk.yml
