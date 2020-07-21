@@ -1,0 +1,32 @@
+---
+- name: Enable docker-ce repo
+  command:
+    cmd: "yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
+
+- name: Install latest containerd.io
+  yum:
+    name: 'https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm'
+    state: present
+
+- name: Install docker engine
+  yum:
+    name:
+    - docker-ce
+    - docker-ce-cli
+    state: present
+
+- name: Enable docker on boot
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Create docker group
+  group:
+    name: docker
+
+- name: Add user to docker group
+  user:
+    name: dylan
+    groups: docker
+    append: yes
