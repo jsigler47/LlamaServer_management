@@ -14,7 +14,7 @@
   user:
     name: dylan
     shell: /bin/bash
-    password: "changeme"
+    password: "default"
 
 - name: Add user dylan to sudoers
   copy:

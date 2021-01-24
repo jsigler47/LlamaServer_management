@@ -1,0 +1,7 @@
+- name: Get Powerline fonts
+  git:
+    repo: https://github.com/powerline/fonts.git
+    dest: /tmp/powerline
+
+- name: Install Powerline fonts
+  shell: /tmp/powerline/install.sh

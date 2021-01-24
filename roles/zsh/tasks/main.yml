@@ -1,0 +1,23 @@
+---
+- name: Install zsh
+  apt:
+    name: zsh
+
+- name: Setup oh-my-zsh
+  import_tasks: oh-my-zsh.yml
+
+- name: Install dependencies
+  import_tasks: dependencies.yml
+
+- name: Install zsh plugins
+  import_tasks: plugins.yml
+
+- name: Copy Config
+  copy:
+    src: .zshrc
+    dest: /home/dylan/Desktop/Setup
+
+- name: Change default shell for user
+  user:
+    name: dylan
+    shell: /bin/zsh

@@ -1,0 +1,17 @@
+- name: Remove old install
+  file: 
+    path: /home/dylan/.oh-my-zsh
+    state: absent
+
+
+- name: Download zsh installer
+  get_url: 
+    url: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/zsh-installer.sh
+    mode: '777'
+
+- name: Execute the zsh-installer.sh
+  shell: /tmp/zsh-installer.sh
+
+- name: Remove the zsh-installer.sh
+  file: path=/tmp/zsh-installer.sh state=absent
