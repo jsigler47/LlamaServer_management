@@ -20,9 +20,6 @@
     src: .zshrc
     dest: /home/dylan/.zshrc
 
-- name: Change color pallete
-  import_tasks: color_pallete.yml
-
 - name: Change default shell for user
   user:
     name: dylan
