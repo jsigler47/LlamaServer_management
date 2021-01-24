@@ -3,7 +3,7 @@
   user:
     name: ansible
     shell: /bin/bash
-    password: "ansible"
+    password: ansible
 
 - name: Add ansible user to sudoers
   copy:
@@ -14,7 +14,7 @@
   user:
     name: dylan
     shell: /bin/bash
-    password: "default"
+    password: default
 
 - name: Add user dylan to sudoers
   copy:

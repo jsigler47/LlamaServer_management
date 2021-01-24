@@ -43,4 +43,8 @@
     - python-apt
     - python3.9
     - openssh-server
+    - neofetch
+    # Gogh Dependencies
+    - dconf-cli
+    - uuid-runtime
     state: present
