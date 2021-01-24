@@ -3,5 +3,5 @@
   become: true
 
   roles:
-    - setup_baseline
-    - zsh
+    #- setup_baseline
+    - terminal_setup

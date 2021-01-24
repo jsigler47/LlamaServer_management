@@ -1,4 +1,0 @@
-- name: Download autosuggestions
-  git:
-    repo: https://github.com/zsh-users/zsh-autosuggestions
-    dest: /home/dylan/.oh-my-zsh/plugins/zsh-autosuggestions

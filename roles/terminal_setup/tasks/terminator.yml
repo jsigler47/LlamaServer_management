@@ -1,0 +1,22 @@
+- name: Set terminator to default emulator
+  command: gsettings set org.gnome.desktop.default-applications.terminal exec /bin/usr/bin/terminator
+  
+- name: Pip install requests
+  pip:
+    name: requests
+    executable: pip
+
+- name: Create terminator plugins directory
+  file:
+    path: /home/dylan/.config/terminator/plugins/
+    state: directory
+
+- name: Get themes plugin
+  get_url: 
+    url: https://git.io/v5Zww
+    dest: /home/dylan/.config/terminator/plugins/terminator-themes.py
+
+- name: Configure terminator
+  copy:
+    src: terminator/config
+    dest: /home/dylan/.config/terminator/config

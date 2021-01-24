@@ -3,6 +3,11 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/dylan/.oh-my-zsh"
+export TERMINAL=gnome-terminal
+
+# Remove hostname:
+prompt_context() {} 
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,7 +75,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,6 +101,19 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# My aliases:
+alias lg='ll -a | grep '
+alias hg='history | grep '
+alias hv='history | vim -'
+alias copy='xsel -ib'
+alias paste='xsel --clipboard'
+alias vimclipboard='paste | vim -'
+alias mv="mv -v"
+alias rm="rm -vi"
+alias cp="cp -v"
+alias install="sudo apt install "
+alias update="sudo apt update"
+alias zshconfig="mate ~/.zshrc"
+alias ohmyzsh="mate ~/.oh-my-zsh"
+
+neofetch

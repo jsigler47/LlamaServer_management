@@ -1,4 +1,7 @@
 ---
+- name: Install and configure terminator
+  import_tasks: terminator.yml
+  
 - name: Install zsh
   apt:
     name: zsh

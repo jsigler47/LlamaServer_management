@@ -1,0 +1,9 @@
+- name: Download Gogh
+  git:
+    repo: https://github.com/Mayccoll/Gogh.git
+    dest: /tmp/gogh
+
+- name: Set color pallet
+  shell: /tmp/gogh/themes/aci.sh
+  environment:
+    TERMINAL: gnome-terminal

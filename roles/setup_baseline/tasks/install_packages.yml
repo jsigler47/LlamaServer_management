@@ -41,9 +41,13 @@
     - code
     - gnome-tweak-tool
     - python-apt
+    - python3-apt
     - python3.9
+    - python-pip
+    - python3-pip
     - openssh-server
     - neofetch
+    - terminator
     # Gogh Dependencies
     - dconf-cli
     - uuid-runtime
