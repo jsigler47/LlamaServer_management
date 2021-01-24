@@ -1,7 +1,6 @@
 ---
-- hosts: 192.168.1.10
+- hosts: localhost
   become: true
 
   roles:
     - setup_baseline
-    - docker_install

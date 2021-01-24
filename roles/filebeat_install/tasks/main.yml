@@ -1,9 +1,0 @@
----
-- name: Add Beats repo
-  import_tasks: add_repo.yml
-
-- name: Configure filebeat
-  import_tasks: configure_filebeat.yml 
-
-- name: Install filebeat
-  import_tasks: install_filebeat.yml

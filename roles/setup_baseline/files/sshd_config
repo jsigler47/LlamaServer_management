@@ -43,7 +43,7 @@ SyslogFacility AUTHPRIV
 
 # Authentication:
 
-AllowUsers dylan ansible root
+AllowUsers dylan ansible
 #LoginGraceTime 2m
 PermitRootLogin yes
 #StrictModes yes

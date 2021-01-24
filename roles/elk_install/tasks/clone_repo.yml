@@ -1,5 +1,0 @@
----
-- name: Clone docker-elk repo
-  git:
-    repo: https://github.com/deviantony/docker-elk.git
-    dest: "/home/docker/"

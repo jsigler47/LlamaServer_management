@@ -1,0 +1,10 @@
+- name: Enable UFW
+  ufw:
+    state: enabled
+    policy: deny
+    logging: 'on'
+
+- name: Allow SSH
+  ufw:
+    rule: allow
+    name: OpenSSH
