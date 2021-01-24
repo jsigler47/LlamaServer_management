@@ -1,2 +1,2 @@
-# LlamaServer_management
-Ansible playbook to manage home server "LlamaServer"
+# Ubuntu Setup
+Ansible playbook to setup a fresh Ubuntu box with apps, defaults, and configurations.
